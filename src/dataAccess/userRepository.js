@@ -17,7 +17,7 @@ module.exports = class UserRepository {
 
                             //create user in neo4j database
                             session
-                                .run( `CREATE (a:User {username: '${newUser.username}'})`)
+                                .run( `CREATE (a: User {username: '${newUser.username}'})`)
                                 .then(function (result) {
                                     result.records.forEach(function (record) {
                                     });
@@ -95,7 +95,7 @@ module.exports = class UserRepository {
                     });
             })
             .catch(() => {
-                response.status(500).json(ApiErrors.internalServerError());
+                response.status(412).json(ApiErrors.internalServerError());
             });
     };
 };

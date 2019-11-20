@@ -13,8 +13,8 @@ class ThreadRepository {
         User.findOne({ username })
             .then((user) => {
                 if (user) {
-                    return user.threads
-                    // res.status(200).json({"threads": user.threads});
+                    // return user.threads
+                    res.status(200).json({"threads": user.threads});
                 } else {
                     res.status(404).json(apiErrors.notFound());
                 }

@@ -77,7 +77,7 @@ describe('Friend', () => {
             .end((err, res) => {
                 if (err) console.log("Error: " + err);
 
-                res.should.have.status(200);
+                res.should.have.status(412);
                 done();
             });
     });

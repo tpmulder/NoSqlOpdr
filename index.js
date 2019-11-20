@@ -33,6 +33,7 @@ app.all('*', function(req, res, next){
 app.use(express.static(__dirname + '/public'));
 
 // Routing with versions
+app.use('/api', require('./src/routes/authentication'));
 app.use('/api/thread', require('./src/routes/thread'));
 app.use('/api/comment', require('./src/routes/comment'));
 app.use('/api/friend', require('./src/routes/friend'));
