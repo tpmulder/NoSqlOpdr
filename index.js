@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const config = require('./config.json');
 
 //Mongoose connection
-mongoose.connect('mongodb://localhost/' + config.dbName, {useNewUrlParser: true});
+mongoose.connect('mongodb+srv://admin:admin@node-rest-api-vgiqv.mongodb.net/test?retryWrites=true&w=majority', {useNewUrlParser: true});
 
 mongoose.connection
     .once('open', () => {
@@ -16,6 +16,7 @@ mongoose.connection
         app.listen(port, function(){
             console.log('http://localhost: ' + port);
         });
+        
     })
     .on('error', (error) => {
         console.warn('Warning', error);
@@ -32,7 +33,6 @@ app.all('*', function(req, res, next){
 app.use(express.static(__dirname + '/public'));
 
 // Routing with versions
-app.use('/api', require('./src/routes/authentication'));
 app.use('/api/thread', require('./src/routes/thread'));
 app.use('/api/comment', require('./src/routes/comment'));
 app.use('/api/friend', require('./src/routes/friend'));

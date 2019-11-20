@@ -1,7 +1,7 @@
 const ApiErrors = require('../errorMessages/apiErrors');
 const neo4j = require('neo4j-driver').v1;
 const config = require('../../config');
-const driver = neo4j.driver('bolt://localhost:7687/', neo4j.auth.basic(config.neo4jUser, config.neo4jPassword));
+const driver = neo4j.driver('bolt://hobby-bkfhlilibacigbkedhcfkddl.dbs.graphenedb.com:24787', neo4j.auth.basic(config.neo4jUser, config.neo4jPassword));
 
 class UserRepository {
     static createFriendship(username, usernameNewFriend, response){

@@ -1,8 +1,7 @@
 {
-  "secretKey": "AssessmentNoSQL-102586BK-",
-  "dbName": "studdit",
+  "dbName": "node-rest-api",
   "dbServer": "localhost",
   "serverPort": "27018",
-  "neo4jUser": "neo4j",
-  "neo4jPassword": "Studdit-2018"
+  "neo4jUser": "admin",
+  "neo4jPassword": "b.cvlf8hpP2USd.HixXrxWWOn14p2Ou"
 }

@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/KNZegelaar/Studdit.git"
+    "url": "git+https://github.com/tpmulder/NoSqlOpdr.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/KNZegelaar/Studdit/issues"
+    "url": "https://github.com/tpmulder/NoSqlOpdr/issues"
   },
-  "homepage": "https://github.com/KNZegelaar/Studdit#readme",
+  "homepage": "https://github.com/tpmulder/NoSqlOpdr",
   "dependencies": {
     "chai": "^4.2.0",
     "chai-http": "^4.2.0",
