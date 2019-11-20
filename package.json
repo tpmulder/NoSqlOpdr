@@ -1,0 +1,32 @@
+{
+  "name": "studdit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon --exec mocha",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KNZegelaar/Studdit.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KNZegelaar/Studdit/issues"
+  },
+  "homepage": "https://github.com/KNZegelaar/Studdit#readme",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.0",
+    "express": "^4.16.4",
+    "isemail": "^3.2.0",
+    "jwt-simple": "^0.5.5",
+    "mocha": "^5.2.0",
+    "moment": "^2.22.2",
+    "mongoose": "^5.3.13",
+    "neo4j-driver": "^1.5.0",
+    "nodemon": "^1.18.6"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "secretKey": "AssessmentNoSQL-102586BK-",
+  "dbName": "studdit",
+  "dbServer": "localhost",
+  "serverPort": "27018",
+  "neo4jUser": "neo4j",
+  "neo4jPassword": "Studdit-2018"
+}
