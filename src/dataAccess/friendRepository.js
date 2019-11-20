@@ -35,7 +35,7 @@ class UserRepository {
                 response.status(200).json({message: username + " and " + usernameNewFriend + " are no longer friends"});
             })
             .catch(function (error) {
-                response.status(500).json(ApiErrors.internalServerError());
+                response.status(200).json({message: "Could not find friendship"});
             });
     }
 }

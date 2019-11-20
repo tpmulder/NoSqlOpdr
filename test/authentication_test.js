@@ -19,10 +19,11 @@ describe('Registration', () => {
             });
     });
 
-    it('should throw an error when no firstname is provided', (done) => {
+    it('should throw an error when username is shorter than 2 chars', (done) => {
         chai.request(index)
             .post('/api/register')
             .send({
+                username: "X",
                 lastname: datetime,
                 password: `T3st-${datetime}`
             })
@@ -36,12 +37,11 @@ describe('Registration', () => {
             });
     });
 
-    it('should throw an error when firstname is shorter than 2 chars', (done) => {
+    it('should throw an error when no username is provided', (done) => {
         chai.request(index)
             .post('/api/register')
             .send({
-                firstname: "X",
-                lastname: datetime,
+                username: "Test",
                 password: `T3st-${datetime}`
             })
             .end((err, res) => {
@@ -54,28 +54,11 @@ describe('Registration', () => {
             });
     });
 
-    it('should throw an error when no lastname is provided', (done) => {
+    it('should throw an error when username is shorter than 2 chars', (done) => {
         chai.request(index)
             .post('/api/register')
             .send({
-                firstname: "Test",
-                password: `T3st-${datetime}`
-            })
-            .end((err, res) => {
-                res.should.not.have.status(200);
-                res.body.should.be.a('object');
-                res.body.should.have.property('message');
-                res.body.should.have.property('code');
-                res.body.should.have.property('datetime');
-                done()
-            });
-    });
-
-    it('should throw an error when lastname is shorter than 2 chars', (done) => {
-        chai.request(index)
-            .post('/api/register')
-            .send({
-                firstname: "Test",
+                username: "Test",
                 lastname: "X",
                 password: `T3st-${datetime}`
             })

@@ -77,11 +77,12 @@ module.exports = class UserRepository {
             });
     };
 
-    static deleteUser(username, response){
+    static deleteUser(username, password, response){
         User.findOneAndDelete({username})
             .then(() => {
                 const session = driver.session();
 
+                if(user.password === password){
                 session
                     .run('MATCH (a:User { username: "' + username + '"}) DETACH DELETE a')
                     .then(function (result) {
@@ -93,6 +94,10 @@ module.exports = class UserRepository {
                     .catch(function (error) {
                         response.status(500).json(ApiErrors.internalServerError());
                     });
+                }
+                else {
+                    response.status(500).json({message: "Wrong password/username combination"});
+                }
             })
             .catch(() => {
                 response.status(412).json(ApiErrors.internalServerError());
