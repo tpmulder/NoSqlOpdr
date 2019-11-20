@@ -1,12 +1,16 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-// Create the UserSchema for a single user.
 const UserSchema = new Schema({
-    username: String,
-    password: String,
-
-    // A user can be friends with other users.
+    username: {
+        type: String,
+        required: [true, 'Vul een geldige gebruikersnaam in'],
+        unique: [true, 'Deze gebruikersnaam is al in gebruik']
+    },
+    password: {
+        type: String,
+        required: [true, 'Vul een wachtwoord in']
+    },
     threads: [{
         type: Schema.Types.ObjectId,
         ref: 'thread'
@@ -21,8 +25,4 @@ const UserSchema = new Schema({
     }]
 });
 
-// Create the user collection with the UserSchema.
-const User = mongoose.model('user', UserSchema);
-
-// Make the user available for the other files.
-module.exports = User;
+module.exports = mongoose.model('user', UserSchema);;

@@ -1,22 +1,21 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-// Create the schema for the Thread table/collection.
 const ThreadSchema = new Schema({
     title: {
         type: String,
-        required: [true, 'Thread title is required.'],
+        required: [true, 'Vul aub een titel in'],
         validate: {
             validator: (title) => title.length > 2,
-            message: 'Title must be longer than 2 characters.'
+            message: 'Titel moet langer zijn dan 2 characters.'
         }
     },
     content: {
         type: String,
-        required: [true, 'A thread must have some content.'],
+        required: [true, 'Vul aub wat content in.'],
         validate: {
             validator: (content) => content.length > 2,
-            message: 'The content of the thread must be at least 2 characters long.'
+            message: 'De inhoud van het bericht moet langer zijn dan 2 characters.'
         }
     },
     comments: [{
@@ -27,8 +26,4 @@ const ThreadSchema = new Schema({
     downvotes: Number
 });
 
-// Define the thread collection and add the ThreadSchema.
-const Thread = mongoose.model('thread', ThreadSchema);
-
-// Make thread available for other files.
-module.exports = Thread;
+module.exports = mongoose.model('thread', ThreadSchema);

@@ -6,11 +6,11 @@ const config = require('../../config');
 const driver = neo4j.driver('bolt://hobby-bkfhlilibacigbkedhcfkddl.dbs.graphenedb.com:24787', neo4j.auth.basic(config.neo4jUser, config.neo4jPassword));
 
 module.exports = class UserRepository {
-    static createUser(username, email, password, response) {
+    static createUser(username, password, response) {
         User.findOne({username})
             .then((user) => {
                 if (user === null) {
-                    const newUser = new User({ username: username, email: email, password: password });
+                    const newUser = new User({ username: username, password: password });
                     newUser.save()
                         .then(() => {
                             const session = driver.session();

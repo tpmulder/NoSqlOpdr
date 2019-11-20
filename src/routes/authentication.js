@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 const auth = require('../authentication/authentication');
 const apiErrors = require("../errorMessages/apiErrors.js");
-const Isemail = require('isemail');
 const repo = require('../dataAccess/userRepository');
 
 router.all(new RegExp("^(?!\/login$|\/register$).*"), (request, response, next) => {
@@ -36,10 +35,9 @@ router.route("/register").post((request, response) => {
 
     // Get the users information to store in the database.
     const username = registration.username;
-    const email = registration.email;
     const password = registration.password;
 
-    repo.createUser(username, email, password, response);
+    repo.createUser(username, password, response);
 });
 
 router.route("/login").post((request, response) => {
@@ -92,7 +90,6 @@ class CheckObjects {
         const tmp =
             object && typeof object == "object" &&
             object.username && typeof object.username == "string" && object.username.length >= 2 &&
-            object.email && typeof object.email == "string" && Isemail.validate(object.email) &&
             object.password && typeof object.password == "string";
         return tmp == undefined ? false : tmp;
     }

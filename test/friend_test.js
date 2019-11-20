@@ -15,7 +15,6 @@ describe('Friend', () => {
             .set('Content-Type', 'application/json')
             .send({
                 username: "TEST",
-                email: "test@test.com",
                 password: "TEST!123"
             })
             .end((err, res) => {
@@ -30,7 +29,6 @@ describe('Friend', () => {
                     .set('Content-Type', 'application/json')
                     .send({
                         username: "FRIEND",
-                        email: "FRIEND@test.com",
                         password: "FRIEND!123"
                     })
                     .end((err, res) => {
@@ -77,7 +75,7 @@ describe('Friend', () => {
             .end((err, res) => {
                 if (err) console.log("Error: " + err);
 
-                res.should.have.status(412);
+                res.should.have.status(200);
                 done();
             });
     });

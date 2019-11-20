@@ -19,7 +19,6 @@ describe('Comment', () => {
             .set('Content-Type', 'application/json')
             .send({
                 username: "TEST",
-                email: "test@test.com",
                 password: "TEST!123"
             })
             .end((err, res) => {

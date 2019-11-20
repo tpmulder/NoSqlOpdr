@@ -24,7 +24,6 @@ describe('Registration', () => {
             .post('/api/register')
             .send({
                 lastname: datetime,
-                email: "test@test.com",
                 password: `T3st-${datetime}`
             })
             .end((err, res) => {
@@ -43,7 +42,6 @@ describe('Registration', () => {
             .send({
                 firstname: "X",
                 lastname: datetime,
-                email: "test@test.com",
                 password: `T3st-${datetime}`
             })
             .end((err, res) => {
@@ -61,7 +59,6 @@ describe('Registration', () => {
             .post('/api/register')
             .send({
                 firstname: "Test",
-                email: "test@test.com",
                 password: `T3st-${datetime}`
             })
             .end((err, res) => {
@@ -80,26 +77,6 @@ describe('Registration', () => {
             .send({
                 firstname: "Test",
                 lastname: "X",
-                email: "test@test.com",
-                password: `T3st-${datetime}`
-            })
-            .end((err, res) => {
-                res.should.not.have.status(200);
-                res.body.should.be.a('object');
-                res.body.should.have.property('message');
-                res.body.should.have.property('code');
-                res.body.should.have.property('datetime');
-                done()
-            });
-    });
-
-    it('should throw an error when email is invalid', (done) => {
-        chai.request(index)
-            .post('/api/register')
-            .send({
-                firstname: "Test",
-                lastname: datetime,
-                email: "blabla1234",
                 password: `T3st-${datetime}`
             })
             .end((err, res) => {
@@ -123,7 +100,6 @@ describe('Login', () => {
             .set('Content-Type', 'application/json')
             .send({
                 username: "TEST",
-                email: "test@test.com",
                 password: "TEST!123"
             })
             .end((err, res) => {
